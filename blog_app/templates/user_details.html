@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}User Post Details{% endblock %}
+{% block content %}
+<button onclick="window.location.href='{% url 'post_update' post.slug %}';">Update</button>
+<div>
+    <h1>{{post.title}}</h1>
+    <h1>{{post.created_by.username}} ({{post.created_at}}) </h1>
+    <p>{{post.text}}</p>
+</div>
+{% endblock %}

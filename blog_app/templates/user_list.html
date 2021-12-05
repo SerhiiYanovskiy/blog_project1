@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}My Posts{% endblock %}
+{% block nav-user-posts %}<h1>My Posts</h1>{% endblock %}
+{% block content %}
+<button onclick="window.location.href='{% url 'post_add' %}';">Add</button>
+{% for post in object_list %}
+<div>
+    <h1><a href="{% url 'user_post_details' post.slug %}">{{post.title}}</a></h1>
+    <button onclick="window.location.href='{% url 'post_delete' post.slug %}';">Delete</button>
+</div>
+{% endfor %}
+{% endblock %}
+
+

@@ -1,0 +1,23 @@
+<html>
+<head>
+    <title>{% block title %} {% endblock %}</title>
+    <div>
+        <h2>
+            {% if request.user.is_authenticated %}
+            {{ request.user.username }}
+            {% block nav-user-posts %}<a href="{% url 'user_posts' %}">My Post</a>{% endblock %}
+            {% block nav-all-posts %}<a href="{% url 'homepage' %}">Blog</a>{% endblock %}
+            <a href="{% url 'logout' %}">Log out</a>
+            {% else %}
+            <a href="{% url 'login' %}">Sign In</a>
+            <a href="{% url 'register' %}">Sign Up</a>
+            {% endif %}
+        </h2>
+    </div>
+</head>
+<body>
+<div>
+    {% block content %}{% endblock %}
+</div>
+</body>
+</html>
